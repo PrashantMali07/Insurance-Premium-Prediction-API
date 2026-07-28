@@ -1,108 +1,146 @@
 # Insurance-Premium-Prediction-API
 This project builds an insurance premium prediction system using FastAPI for the backend API and Streamlit for an interactive user interface. It accepts user details such as age, weight, height, income, smoker status, city, and occupation to predict the premium category with model-based results.
 
-# Insurance Premium Prediction
+# Insurance Premium Prediction API & Dashboard
 
-This project is a simple machine learning-based web application that predicts an insurance premium category using a FastAPI backend and a Streamlit frontend.
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg)](https://fastapi.tiangolo.com/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.25%2B-FF4B4B.svg)](https://streamlit.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## Overview
+An end-to-end machine learning system for classifying insurance risk and predicting premium tiers. Built with **FastAPI** for high-performance RESTful inference and **Streamlit** for real-time interactive user assessments.
 
-The application accepts user input such as:
-- BMI
-- Age group
-- Lifestyle risk
-- City tier
-- Income
-- Occupation
+---
 
-These values are sent to the FastAPI backend, where the prediction logic is applied and the result is returned to the user.
+## Architecture Overview
 
-## Project Structure
+
+```
+
+```
+              ┌──────────────────┐
+              │ Streamlit Client │
+              └────────┬─────────┘
+                       │ (HTTP POST /predict)
+                       ▼
+              ┌──────────────────┐
+              │  FastAPI Server  │
+              └────────┬─────────┘
+                       │
+         ┌─────────────┴─────────────┐
+         ▼                           ▼
+
+```
+
+┌─────────────────────┐     ┌─────────────────────┐
+│ Pydantic Validation │     │   Inference Engine  │
+│ (schema/user_input) │     │   (model/predict)   │
+└─────────────────────┘     └─────────────────────┘
+
+```
+
+---
+
+## Directory Layout
 
 ```text
-insaurance_premium_prediction/
-├── app.py
-├── frontend.py
-├── schema/
-│   ├── user_input.py
-│   └── prediction_response_parser.py
+.
+├── app.py                      # FastAPI application entry point
+├── frontend.py                 # Streamlit dashboard interface
 ├── model/
-│   └── predict.py
+│   └── predict.py              # ML model wrapper & inference pipeline
+├── schema/
+│   ├── user_input.py           # Request payload schema (Pydantic)
+│   └── prediction_response_parser.py  # Output response formatting
+├── requirements.txt            # Project dependencies
 └── README.md
+
 ```
 
-## Technologies Used
+---
 
-- Python
-- FastAPI
-- Streamlit
-- Pydantic
-- Requests
+## Getting Started
 
-## Features
+### Prerequisites
 
-- FastAPI backend with prediction endpoint
-- Streamlit web interface for user input
-- Response model validation using Pydantic
-- Simple and lightweight architecture for local development
+* Python `3.9` or higher
+* `pip` / `venv`
 
-## Setup
+### Setup Environment
 
-### 1. Create a virtual environment
-
+1. **Clone the repository:**
 ```bash
-python -m venv .venv
+git clone [https://github.com/your-username/insurance-premium-prediction.git](https://github.com/your-username/insurance-premium-prediction.git)
+cd insurance-premium-prediction
+
 ```
 
-### 2. Activate the virtual environment
 
-On Windows PowerShell:
+2. **Create and activate a virtual environment:**
+* **Linux/macOS:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 
+```
+
+
+* **Windows (PowerShell):**
 ```powershell
+python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+
 ```
 
-### 3. Install dependencies
 
+
+
+3. **Install dependencies:**
 ```bash
-pip install fastapi uvicorn streamlit requests pydantic
+pip install --upgrade pip
+pip install -r requirements.txt
+
 ```
 
-If your model uses additional libraries such as scikit-learn, joblib, or pandas, install them as needed.
 
-## Run the Backend
 
-From the project folder, run:
+---
+
+## Running the Application
+
+### 1. Launch the Backend API
+
+Start the FastAPI server on port `8000`:
 
 ```bash
 uvicorn app:app --reload --host 0.0.0.0 --port 8000
+
 ```
 
-The API will be available at:
+* **Swagger UI Documentation:** `http://localhost:8000/docs`
+* **ReDoc Documentation:** `http://localhost:8000/redoc`
+* **Health Check:** `http://localhost:8000/health`
 
-- `http://localhost:8000/about`
-- `http://localhost:8000/health`
-- `http://localhost:8000/docs`
+### 2. Launch the Frontend Dashboard
 
-## Run the Frontend
-
-Open a new terminal and run:
+In a separate terminal tab, start the Streamlit service:
 
 ```bash
 streamlit run frontend.py
+
 ```
 
-Then open:
+* **Web Dashboard:** `http://localhost:8501`
 
-```text
-http://localhost:8501
-```
+---
 
-## API Endpoint
+## API Reference
 
-### POST /predict
+### `POST /predict`
 
-Request body example:
+Calculates insurance risk tier and class probabilities based on user metrics.
+
+#### Request Body
 
 ```json
 {
@@ -113,9 +151,10 @@ Request body example:
   "income_lpa": 12.5,
   "occupation": "private_job"
 }
+
 ```
 
-Example response:
+#### Response (`200 OK`)
 
 ```json
 {
@@ -129,22 +168,5 @@ Example response:
     }
   }
 }
+
 ```
-
-## Notes
-
-- The request schema is defined in `schema/user_input.py`.
-- The prediction logic is implemented in `model/predict.py`.
-- The frontend sends requests to the FastAPI backend at `http://localhost:8000/predict`.
-
-## Summary
-
-This project is a basic end-to-end example of combining:
-- a machine learning prediction model
-- a FastAPI backend
-- a Streamlit frontend
-
-for local deployment and testing.
-```
-
-If you want, I can also make this README shorter and more professional for GitHub.If you want, I can also make this README shorter and more professional for GitHub.
