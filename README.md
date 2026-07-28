@@ -9,10 +9,8 @@
 
 ## Architecture Overview
 
-An end-to-end machine learning system for classifying insurance risk and predicting premium tiers. Built with **FastAPI** for high-performance RESTful inference and **Streamlit** for real-time interactive user assessments.
-
 ```
-
+An end-to-end machine learning system for classifying insurance risk and predicting premium tiers. Built with **FastAPI** for high-performance RESTful inference and **Streamlit** for real-time interactive user assessments.
 ```
               ┌──────────────────┐
               │ Streamlit Client │
