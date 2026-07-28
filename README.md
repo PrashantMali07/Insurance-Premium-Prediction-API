@@ -1,7 +1,5 @@
 # Insurance Premium Prediction API & Dashboard
 
-An end-to-end machine learning system for classifying insurance risk and predicting premium tiers. Built with **FastAPI** for high-performance RESTful inference and **Streamlit** for real-time interactive user assessments.
-
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg)](https://fastapi.tiangolo.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.25%2B-FF4B4B.svg)](https://streamlit.io/)
@@ -11,6 +9,7 @@ An end-to-end machine learning system for classifying insurance risk and predict
 
 ## Architecture Overview
 
+An end-to-end machine learning system for classifying insurance risk and predicting premium tiers. Built with **FastAPI** for high-performance RESTful inference and **Streamlit** for real-time interactive user assessments.
 
 ```
 
