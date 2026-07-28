@@ -1,14 +1,11 @@
-# Insurance-Premium-Prediction-API
-This project builds an insurance premium prediction system using FastAPI for the backend API and Streamlit for an interactive user interface. It accepts user details such as age, weight, height, income, smoker status, city, and occupation to predict the premium category with model-based results.
-
 # Insurance Premium Prediction API & Dashboard
+
+An end-to-end machine learning system for classifying insurance risk and predicting premium tiers. Built with **FastAPI** for high-performance RESTful inference and **Streamlit** for real-time interactive user assessments.
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg)](https://fastapi.tiangolo.com/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.25%2B-FF4B4B.svg)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-An end-to-end machine learning system for classifying insurance risk and predicting premium tiers. Built with **FastAPI** for high-performance RESTful inference and **Streamlit** for real-time interactive user assessments.
 
 ---
 
@@ -70,7 +67,7 @@ An end-to-end machine learning system for classifying insurance risk and predict
 
 1. **Clone the repository:**
 ```bash
-git clone [https://github.com/your-username/insurance-premium-prediction.git](https://github.com/your-username/insurance-premium-prediction.git)
+git clone [https://github.com/PrashantMali07/insurance-premium-prediction.git](https://github.com/PrashantMali07/insurance-premium-prediction.git)
 cd insurance-premium-prediction
 
 ```
